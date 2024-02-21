@@ -1,0 +1,25 @@
+[package]
+name = "openpilot"
+version = "0.0.1"
+edition = "2021"
+description = "Towards fully autonomous driving"
+license = "MIT"
+keywords = ["embedded", "machine-learning", "deep-learning", "openpilot"]
+categories = ["science"]
+repository = "https://github.com/wiseaidev/openpilot"
+documentation = "https://docs.rs/openpilot"
+authors = ["Mahmoud Harmouch <oss@wiseai.dev>"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ndarray = "0.15.6"
+
+[dev-dependencies]
+approx = "0.5.1"
+
+[profile.release]
+codegen-units = 1
+opt-level = "z"
+lto = "thin"
+strip = "symbols"
