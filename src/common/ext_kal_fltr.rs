@@ -28,7 +28,7 @@ impl SensorReading {
     ///
     /// ```rust
     /// use ndarray::{arr2, Array2};
-    /// use openpilot::ext_kal_fltr::SensorReading;
+    /// use openpilot::common::ext_kal_fltr::SensorReading;
     ///
     /// let data = arr2(&[[1.0, 2.0], [3.0, 4.0]]);
     /// let obs_model = arr2(&[[1.0, 0.0], [0.0, 1.0]]);
@@ -76,7 +76,7 @@ impl SimpleSensor {
     ///
     /// ```rust
     /// use ndarray::{arr2, Array2};
-    /// use openpilot::ext_kal_fltr::SimpleSensor;
+    /// use openpilot::common::ext_kal_fltr::SimpleSensor;
     ///
     /// let obs_model = arr2(&[[1.0, 0.0], [0.0, 1.0]]);
     /// let covar = arr2(&[[0.1, 0.0], [0.0, 0.1]]);
@@ -95,9 +95,9 @@ impl SimpleSensor {
             obs_model
         };
 
-        let covar = if covar.shape() == &[1, 1] {
+        let covar = if covar.shape() == [1, 1] {
             Array2::eye(dims) * covar[[0, 0]]
-        } else if covar.shape() == &[dims, dims] {
+        } else if covar.shape() == [dims, dims] {
             covar
         } else {
             Array2::eye(obs_model.shape()[0]) * covar[[0, 0]]
@@ -121,7 +121,7 @@ impl SimpleSensor {
     ///
     /// ```rust
     /// use ndarray::{arr2, Array2};
-    /// use openpilot::ext_kal_fltr::{SimpleSensor, SensorReading};
+    /// use openpilot::common::ext_kal_fltr::{SimpleSensor, SensorReading};
     ///
     /// let obs_model = arr2(&[[1.0, 0.0], [0.0, 1.0]]);
     /// let covar = arr2(&[[0.1, 0.0], [0.0, 0.1]]);
@@ -167,7 +167,7 @@ impl GPS {
     /// # Examples
     ///
     /// ```rust
-    /// use openpilot::ext_kal_fltr::GPS;
+    /// use openpilot::common::ext_kal_fltr::GPS;
     ///
     /// let xy_idx = (0, 1);
     /// let dims = 2;
@@ -199,7 +199,7 @@ impl GPS {
     /// # Examples
     ///
     /// ```rust
-    /// use openpilot::ext_kal_fltr::GPS;
+    /// use openpilot::common::ext_kal_fltr::GPS;
     ///
     /// let mut gps = GPS::new((0, 1), 2, 1e4);
     /// gps.init_pos(&[37.7749, -122.4194]);
@@ -225,7 +225,7 @@ impl GPS {
     /// # Examples
     ///
     /// ```rust
-    /// use openpilot::ext_kal_fltr::GPS;
+    /// use openpilot::common::ext_kal_fltr::GPS;
     ///
     /// let gps = GPS::new((0, 1), 2, 1e4);
     /// let distance = gps._haversine(37.7749, -122.4194, 38.0000, -121.0000);
@@ -235,8 +235,7 @@ impl GPS {
         let lon_diff = lon2 - lon1;
         let d = (lat_diff / 2.0).sin().powi(2)
             + lat1.cos() * lat2.cos() * (lon_diff / 2.0).sin().powi(2);
-        let h = 2.0 * self.earth_r * d.sqrt().asin();
-        h
+        2.0 * self.earth_r * d.sqrt().asin()
     }
 
     /// Converts latitude and longitude coordinates to meters.
@@ -253,7 +252,7 @@ impl GPS {
     /// # Examples
     ///
     /// ```rust
-    /// use openpilot::ext_kal_fltr::GPS;
+    /// use openpilot::common::ext_kal_fltr::GPS;
     ///
     /// let gps = GPS::new((0, 1), 2, 1e4);
     /// let (xs, ys) = gps.convert_deg2m(37.7749, -122.4194);
@@ -282,7 +281,7 @@ impl GPS {
     /// # Examples
     ///
     /// ```rust
-    /// use openpilot::ext_kal_fltr::GPS;
+    /// use openpilot::common::ext_kal_fltr::GPS;
     ///
     /// let gps = GPS::new((0, 1), 2, 1e4);
     /// let (lat, lon) = gps._convert_m2deg(100.0, 200.0);
@@ -308,7 +307,7 @@ impl GPS {
     /// # Examples
     ///
     /// ```rust
-    /// use openpilot::ext_kal_fltr::GPS;
+    /// use openpilot::common::ext_kal_fltr::GPS;
     ///
     /// let mut gps = GPS::new((0, 1), 2, 1e4);
     /// gps.init_pos(&[37.7749, -122.4194]);
@@ -373,7 +372,7 @@ impl FastEKF1D {
     /// # Examples
     ///
     /// ```rust
-    /// use openpilot::ext_kal_fltr::FastEKF1D;
+    /// use openpilot::common::ext_kal_fltr::FastEKF1D;
     ///
     /// let ekf = FastEKF1D::new(0.1, 1.0, 0.1);
     /// ```
@@ -405,7 +404,7 @@ impl EKF for FastEKF1D {
     /// # Examples
     ///
     /// ```rust
-    /// use openpilot::ext_kal_fltr::{FastEKF1D, SensorReading, EKF};
+    /// use openpilot::common::ext_kal_fltr::{FastEKF1D, SensorReading, EKF};
     /// use ndarray::arr2;
     ///
     /// let mut ekf = FastEKF1D::new(0.1, 1.0, 0.1);
@@ -445,7 +444,7 @@ impl EKF for FastEKF1D {
     /// # Examples
     ///
     /// ```rust
-    /// use openpilot::ext_kal_fltr::{EKF, FastEKF1D};
+    /// use openpilot::common::ext_kal_fltr::{EKF, FastEKF1D};
     ///
     /// let mut ekf = FastEKF1D::new(0.1, 1.0, 0.1);
     /// ekf.predict(0.1);
@@ -479,7 +478,7 @@ impl EKF for FastEKF1D {
     /// # Examples
     ///
     /// ```rust
-    /// use openpilot::ext_kal_fltr::{FastEKF1D, EKF};
+    /// use openpilot::common::ext_kal_fltr::{FastEKF1D, EKF};
     /// use ndarray::Array2;
     ///
     /// let ekf = FastEKF1D::new(0.1, 1.0, 0.1);
