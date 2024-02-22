@@ -9,16 +9,16 @@
 //!
 //! `openpilot` is organized into several modules, each serving a specific purpose:
 //!
-//! - [SensorReading](struct.SensorReading.html): Represents a sensor reading with observed data, observation model,
+//! - [SensorReading](common/ext_kal_fltr/struct.SensorReading.html): Represents a sensor reading with observed data, observation model,
 //!   and covariance matrix.
 //!
-//! - [SimpleSensor](struct.SimpleSensor.html): Represents a simple sensor with an observation model and covariance matrix.
+//! - [SimpleSensor](common/ext_kal_fltr/struct.SimpleSensor.html): Represents a simple sensor with an observation model and covariance matrix.
 //!
-//! - [GPS](struct.GPS.html): Represents a GPS sensor with specific parameters for position calculations.
+//! - [GPS](common/ext_kal_fltr/struct.GPS.html): Represents a GPS sensor with specific parameters for position calculations.
 //!
-//! - [EKF Trait](trait.EKF.html): Defines a trait for Extended Kalman Filter (EKF) functionality.
+//! - [EKF Trait](common/ext_kal_fltr/trait.EKF.html): Defines a trait for Extended Kalman Filter (EKF) functionality.
 //!
-//! - [FastEKF1D](struct.FastEKF1D.html): Represents a fast 1D Extended Kalman Filter (EKF) implementation.
+//! - [FastEKF1D](common/ext_kal_fltr/struct.FastEKF1D.html): Represents a fast 1D Extended Kalman Filter (EKF) implementation.
 //!
 //! ## Usage
 //!
@@ -26,7 +26,7 @@
 //!
 //! ```toml
 //! [dependencies]
-//! openpilot = "0.0.1"
+//! openpilot = "0.0.2"
 //! ```
 //!
 //! Then, you can import the necessary modules and use the provided functionalities in your code.
@@ -34,7 +34,7 @@
 //! ## Example
 //!
 //! ```rust
-//! use openpilot::ext_kal_fltr::{EKF, FastEKF1D, SensorReading};
+//! use openpilot::common::ext_kal_fltr::{EKF, FastEKF1D, SensorReading};
 //! use ndarray::{arr2, arr1};
 //!
 //! // Create a FastEKF1D instance
@@ -64,4 +64,5 @@
 //!
 //! This project is licensed under the [MIT License](LICENSE).
 
-pub mod ext_kal_fltr;
+pub mod common;
+pub mod selfdrive;
