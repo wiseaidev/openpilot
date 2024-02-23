@@ -8,9 +8,21 @@
 
 In addition to these foundational functionalities, `openpilot` introduces the `selfdrive` package. This package is specifically designed for autonomous vehicle control, providing modules and structs that facilitate object tracking, cluster management, and detailed lead vehicle analysis.
 
-## Features
+## 🦀 Why Rust?
+
+![I Like Yo Cut G!](https://github.com/wiseaidev/openpilot/assets/62179149/cc8c8ff4-94cb-4fa5-aab1-8cd43c3f1791)
+
+> Python is mostly Kids Oriented Programming (KOP)!
+
+Choosing Rust for `openpilot` is like strapping a jet engine to your autonomous vehicle's code. Rust brings a level of memory safety and concurrency control that turns potential coding nightmares into a serene drive through bug-free landscapes. With its high-performance 1D Extended Kalman Filter and modules tailored for sensor management and autonomous control, `openpilot` in Rust isn't just a toolbox; it's the James Bond of autonomous vehicle development. So, why Rust? Because when your code is navigating the streets, you want a language that won't just drive, it'll drive with the precision of a surgical robot and the reliability of a Swiss watch. Welcome to the fast lane of autonomy, where Rust is the steering wheel that ensures you reach your destination, bug-free and in style.
+
+## ✨ Features
 
 - **Autonomous Vehicle:** The `selfdrive` package introduces modules and structs designed for autonomous vehicle control. This includes functionalities for object tracking, cluster management, and detailed lead vehicle analysis. These tools are crucial components for building a fully autonomous system.
+
+![Peak Auto Pilot Momentum](https://github.com/wiseaidev/openpilot/assets/62179149/26b04782-ea3d-4bd6-981e-642818810cc9)
+
+> Look! My Honda is driving by itself!
 
 - **Sensor Models:** Easily construct and simulate sensor models with the flexibility to customize observation models and covariance matrices.
 
@@ -28,7 +40,7 @@ Get started with the `openpilot` library by following these simple steps:
 
 ```toml
 [dependencies]
-openpilot = "0.0.2"
+openpilot = "0.0.3"
 ```
 
 1. Import the necessary modules and use the provided functionality in your Rust project:
@@ -111,6 +123,12 @@ You can access the source code for `openpilot` on [GitHub](https://github.com/wi
 ## 🤝 Contributing
 
 Contributions and feedback are welcome! If you'd like to contribute, report an issue, or suggest an enhancement, please engage with the project on [GitHub](https://github.com/wiseaidev/openpilot). Your contributions help improve this crate for the community.
+
+## 💰 Support 
+
+![My Meet Ain't Meeting](https://github.com/wiseaidev/openpilot/assets/62179149/ddb4966a-3449-4266-8e4a-7bb6914fbe4b)
+
+If you like this project, consider tossing a coin into the virtual tip jar. Your donations help keep the coffee flowing and the code cracking. So, if you want to be the hero this project deserves, why not sprinkle some gold coins in the developer's virtual hat?
 
 # 📘 Documentation
 
