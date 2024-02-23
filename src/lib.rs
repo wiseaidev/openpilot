@@ -26,7 +26,7 @@
 //!
 //! ```toml
 //! [dependencies]
-//! openpilot = "0.0.3"
+//! openpilot = "0.0.4"
 //! ```
 //!
 //! Then, you can import the necessary modules and use the provided functionalities in your code.

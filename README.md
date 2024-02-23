@@ -40,7 +40,7 @@ Get started with the `openpilot` library by following these simple steps:
 
 ```toml
 [dependencies]
-openpilot = "0.0.3"
+openpilot = "0.0.4"
 ```
 
 1. Import the necessary modules and use the provided functionality in your Rust project:
