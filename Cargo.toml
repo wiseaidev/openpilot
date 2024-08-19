@@ -14,7 +14,7 @@ authors = ["Mahmoud Harmouch <oss@wiseai.dev>"]
 
 [dependencies]
 interp = "1.0.3"
-ndarray = "0.15.6"
+ndarray = "0.16.1"
 
 [dev-dependencies]
 approx = "0.5.1"
